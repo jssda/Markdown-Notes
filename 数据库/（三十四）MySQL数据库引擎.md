@@ -6,7 +6,7 @@
 show engines
 ```
 
-![1565074289941](assets/1565074289941.png)
+![1565074289941](https://raw.githubusercontent.com/jssda/picbed/master/1565074289941.png)
 
 ## MySQL数据库引擎介绍
 

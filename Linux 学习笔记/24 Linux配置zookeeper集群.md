@@ -40,7 +40,7 @@
    mkdir data
    ```
 
-   ![image-20191211172903593](assets/image-20191211172903593.png)
+   ![image-20191211172903593](https://raw.githubusercontent.com/jssda/picbed/master/image-20191211172903593.png)
 
    重复, 直到三个zookeeper应用全部创建
 
@@ -62,11 +62,11 @@
 
 6. 改目录, 端口
 
-   ![image-20191211173440358](assets/image-20191211173440358.png)
+   ![image-20191211173440358](https://raw.githubusercontent.com/jssda/picbed/master/image-20191211173440358.png)
 
    末尾添加
 
-   ![image-20191211173713227](assets/image-20191211173713227.png)
+   ![image-20191211173713227](https://raw.githubusercontent.com/jssda/picbed/master/image-20191211173713227.png)
 
    server.x: x就是myid中存储的标识
 
@@ -80,7 +80,7 @@
 
    如果没有关闭防火墙的话, 关闭防火墙
 
-   ![image-20191211185925213](assets/image-20191211185925213.png)
+   ![image-20191211185925213](https://raw.githubusercontent.com/jssda/picbed/master/image-20191211185925213.png)
 
    
 

@@ -39,7 +39,7 @@ LOWER(str) , UPPER(str)
 1. date_FORMAT(date, format): 将日期转换成字符串(类似Oracle中的to_char)
 2. str_to_date(str,format) 将字符串转换成日期
 
-![1564974507602](assets/1564974507602.png)
+![1564974507602](https://raw.githubusercontent.com/jssda/picbed/master/1564974507602.png)
 
 ## 通用函数
 

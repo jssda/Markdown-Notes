@@ -4,7 +4,7 @@
 
 > Oracle启动是通过系统服务进行启动的
 
-![1563769435689](assets/1563769435689.png)
+![1563769435689](https://raw.githubusercontent.com/jssda/picbed/master/1563769435689.png)
 
 ## 1. OracleServiceORCL 服务 (必须启动)
 

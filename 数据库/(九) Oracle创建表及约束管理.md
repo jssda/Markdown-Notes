@@ -15,9 +15,9 @@ Oracle在创建表时, 表名会自动转换大小写, Oracle对表名大小写�
 
 ## 使用客户端创建表
 
-![1563885704373]((九) Oracle创建表及约束管理.assets/1563885704373.png)
+![1563885704373](https://raw.githubusercontent.com/jssda/picbed/master/1563885704373.png)
 
-![1563885965197]((九) Oracle创建表及约束管理.assets/1563885965197.png)
+![1563885965197](https://raw.githubusercontent.com/jssda/picbed/master/1563885965197.png)
 
 # 数据库中的约束
 
@@ -57,63 +57,63 @@ Oracle在创建表时, 表名会自动转换大小写, Oracle对表名大小写�
 
 一对多关系时建立两张表之间的关系, 一个表中的一条数据可以对应另一个表中的多条数据. 记住, 外键永远在多方. 外键允许重复, 允许含有空值.
 
-![1563886813175]((九) Oracle创建表及约束管理.assets/1563886813175.png)
+![1563886813175](https://raw.githubusercontent.com/jssda/picbed/master/1563886813175.png)
 
 使用PL/SQL Developer工具建立两张表
 
 ### T_CLASSROOM表
 
-![1563887149949]((九) Oracle创建表及约束管理.assets/1563887149949.png)
+![1563887149949](https://raw.githubusercontent.com/jssda/picbed/master/1563887149949.png)
 
 添加列
 
-![1563887166080]((九) Oracle创建表及约束管理.assets/1563887166080.png)
+![1563887166080](https://raw.githubusercontent.com/jssda/picbed/master/1563887166080.png)
 
 添加约束
 
-![1563887182328]((九) Oracle创建表及约束管理.assets/1563887182328.png)
+![1563887182328](https://raw.githubusercontent.com/jssda/picbed/master/1563887182328.png)
 
 ### T_STUDENT表
 
-![1563887563860]((九) Oracle创建表及约束管理.assets/1563887563860.png)
+![1563887563860](https://raw.githubusercontent.com/jssda/picbed/master/1563887563860.png)
 
 添加列
 
-![1563887595081]((九) Oracle创建表及约束管理.assets/1563887595081.png)
+![1563887595081](https://raw.githubusercontent.com/jssda/picbed/master/1563887595081.png)
 
 添加主键和外键约束
 
-![1563887628705]((九) Oracle创建表及约束管理.assets/1563887628705.png)
+![1563887628705](https://raw.githubusercontent.com/jssda/picbed/master/1563887628705.png)
 
 ## 一对一
 
 一对一关系是建立在一对多的基础之上， 外键可以在任何一方， 需要让外键一方具备唯一约束 
 
-![1563887689685]((九) Oracle创建表及约束管理.assets/1563887689685.png)
+![1563887689685](https://raw.githubusercontent.com/jssda/picbed/master/1563887689685.png)
 
 ### T_USER表
 
-![1563887800009]((九) Oracle创建表及约束管理.assets/1563887800009.png)
+![1563887800009](https://raw.githubusercontent.com/jssda/picbed/master/1563887800009.png)
 
 添加列
 
-![1563887864816]((九) Oracle创建表及约束管理.assets/1563887864816.png)
+![1563887864816](https://raw.githubusercontent.com/jssda/picbed/master/1563887864816.png)
 
 添加约束
 
-![1563887891122]((九) Oracle创建表及约束管理.assets/1563887891122.png)
+![1563887891122](https://raw.githubusercontent.com/jssda/picbed/master/1563887891122.png)
 
 ## T_ROLE表
 
-![1563887977768]((九) Oracle创建表及约束管理.assets/1563887977768.png)
+![1563887977768](https://raw.githubusercontent.com/jssda/picbed/master/1563887977768.png)
 
 添加列
 
-![1563888479025]((九) Oracle创建表及约束管理.assets/1563888479025.png)
+![1563888479025](https://raw.githubusercontent.com/jssda/picbed/master/1563888479025.png)
 
 添加约束, 一对一外键约束应该是唯一的
 
-![1563888494851]((九) Oracle创建表及约束管理.assets/1563888494851.png)
+![1563888494851](https://raw.githubusercontent.com/jssda/picbed/master/1563888494851.png)
 
 ## 多对多
 
@@ -121,40 +121,40 @@ Oracle在创建表时, 表名会自动转换大小写, Oracle对表名大小写�
 
 例如: 商品和订单之间的关系
 
-![1563888553942]((九) Oracle创建表及约束管理.assets/1563888553942.png)
+![1563888553942](https://raw.githubusercontent.com/jssda/picbed/master/1563888553942.png)
 
 ### T_ORDER表
 
-![1563888613270]((九) Oracle创建表及约束管理.assets/1563888613270.png)
+![1563888613270](https://raw.githubusercontent.com/jssda/picbed/master/1563888613270.png)
 
 创建列
 
-![1563888657376]((九) Oracle创建表及约束管理.assets/1563888657376.png)
+![1563888657376](https://raw.githubusercontent.com/jssda/picbed/master/1563888657376.png)
 
 建立约束
 
-![1563888701341]((九) Oracle创建表及约束管理.assets/1563888701341.png)
+![1563888701341](https://raw.githubusercontent.com/jssda/picbed/master/1563888701341.png)
 
 ### T_ITEM表
 
-![1563888748252]((九) Oracle创建表及约束管理.assets/1563888748252.png)
+![1563888748252](https://raw.githubusercontent.com/jssda/picbed/master/1563888748252.png)
 
 创建列
 
-![1563888795770]((九) Oracle创建表及约束管理.assets/1563888795770.png)
+![1563888795770](https://raw.githubusercontent.com/jssda/picbed/master/1563888795770.png)
 
 创建约束
 
-![1563888835273]((九) Oracle创建表及约束管理.assets/1563888835273.png)
+![1563888835273](https://raw.githubusercontent.com/jssda/picbed/master/1563888835273.png)
 
 ### T_ORDER_ITEM表
 
-![1563889046205]((九) Oracle创建表及约束管理.assets/1563889046205.png)
+![1563889046205](https://raw.githubusercontent.com/jssda/picbed/master/1563889046205.png)
 
 创建列
 
-![1563889019207]((九) Oracle创建表及约束管理.assets/1563889019207.png)
+![1563889019207](https://raw.githubusercontent.com/jssda/picbed/master/1563889019207.png)
 
 创建约束, 注意此处应该是联合主键
 
-![1563889171621]((九) Oracle创建表及约束管理.assets/1563889171621.png)
+![1563889171621](https://raw.githubusercontent.com/jssda/picbed/master/1563889171621.png)

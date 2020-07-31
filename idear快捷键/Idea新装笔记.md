@@ -8,7 +8,7 @@
 
 ## 设置步骤
 
-1. 右下角![image-20191205175904530](assets/image-20191205175904530.png), 点击同步
+1. 右下角![image-20191205175904530](https://raw.githubusercontent.com/jssda/picbed/master/image-20191205175904530.png), 点击同步
 
 2. 重启
 
@@ -64,33 +64,33 @@
 
 ### 智能提示不区分大小写
 
-![image-20191205181717603](assets/image-20191205181717603.png)
+![image-20191205181717603](https://raw.githubusercontent.com/jssda/picbed/master/image-20191205181717603.png)
 
 ### 自动导包
 
-![image-20191205181814728](assets/image-20191205181814728.png)
+![image-20191205181814728](https://raw.githubusercontent.com/jssda/picbed/master/image-20191205181814728.png)
 
 ### 鼠标滚轮调整编辑区大小
 
-![image-20191205182016154](assets/image-20191205182016154.png)
+![image-20191205182016154](https://raw.githubusercontent.com/jssda/picbed/master/image-20191205182016154.png)
 
 ### 修改编译时期堆大小
 
-![image-20191205182134269](assets/image-20191205182134269.png)
+![image-20191205182134269](https://raw.githubusercontent.com/jssda/picbed/master/image-20191205182134269.png)
 
 ### 设置自带的terminal为gitbash
 
-![image-20191205182309012](assets/image-20191205182309012.png)
+![image-20191205182309012](https://raw.githubusercontent.com/jssda/picbed/master/image-20191205182309012.png)
 
 ### 设置方法间的分割线
 
-![image-20191205182855198](assets/image-20191205182855198.png)
+![image-20191205182855198](https://raw.githubusercontent.com/jssda/picbed/master/image-20191205182855198.png)
 
 ### 隐藏.idea文件夹和.iml文件
 
-![image-20191205183859943](assets/image-20191205183859943.png)
+![image-20191205183859943](https://raw.githubusercontent.com/jssda/picbed/master/image-20191205183859943.png)
 
 ### 修改类注释模板
 
-![image-20191206110310757](assets/image-20191206110310757.png)
+![image-20191206110310757](https://raw.githubusercontent.com/jssda/picbed/master/image-20191206110310757.png)
 

@@ -48,15 +48,15 @@ savepoint: 设置回滚点
 
 我在PL/SQL Developer中向emp表中添加了一条数据, 但是没有提交事务
 
-![1564627800861](assets/1564627800861.png)
+![1564627800861](https://raw.githubusercontent.com/jssda/picbed/master/1564627800861.png)
 
 我们知道, 数据库会有多用户使用, 假如此时有另一个用户访问数据库, 查询emp表. 我们打开另一个窗口进行测试
 
-![1564627973502](assets/1564627973502.png)
+![1564627973502](https://raw.githubusercontent.com/jssda/picbed/master/1564627973502.png)
 
 可以看到, 一个有数据, 一个没有数据. 这是因为我们一个窗口虽然添加了数据, 但是他只是存储在了临时表中, 并没有持久性添加到emp表中. 那么我们提交一下
 
-![1564628082290](assets/1564628082290.png)
+![1564628082290](https://raw.githubusercontent.com/jssda/picbed/master/1564628082290.png)
 
 提交之后, 另一个窗口也能查询到添加的数据了. 事务提交之后, 数据会持久化在emp表中.
 
@@ -64,15 +64,15 @@ savepoint: 设置回滚点
 
 我又添加了一行id为2的数据, 但是没有提交, 可以看到, 能够查询的到. 
 
-![1564628243235](assets/1564628243235.png)
+![1564628243235](https://raw.githubusercontent.com/jssda/picbed/master/1564628243235.png)
 
 再次添加一行id为3的数据, 注意, 添加id为2和id为3的操作都没有提交
 
-![1564628357064](assets/1564628357064.png)
+![1564628357064](https://raw.githubusercontent.com/jssda/picbed/master/1564628357064.png)
 
 这时, 我认为先添加id=2的操作在添加id为3的操作之前不妥, 我想撤销一下. rollback!
 
-![1564628474772](assets/1564628474772.png)
+![1564628474772](https://raw.githubusercontent.com/jssda/picbed/master/1564628474772.png)
 
 可以看到, rollback之后, 会回滚到上一次提交的情况. 当然, 以上操作在另一个用户或者另一个窗口(session)都是不可见的, 因为并没有提交.
 
@@ -82,6 +82,6 @@ savepoint: 设置回滚点
 
 示例:
 
-![1564628818466](assets/1564628818466.png)
+![1564628818466](https://raw.githubusercontent.com/jssda/picbed/master/1564628818466.png)
 
 我在第一步的时候保存了一个回滚点, 那么回滚的时候就能回滚到指定回滚点. 

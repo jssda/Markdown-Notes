@@ -31,27 +31,27 @@
 
 1. 登录sys用户
 
-   ![1564223285703](Untitled.assets/1564223285703.png)
+   ![1564223285703](https://raw.githubusercontent.com/jssda/picbed/master/1564223285703.png)
 
 2. 在User中找到HR, 点击Edit
 
-   ![1564223355439](Untitled.assets/1564223355439.png)
+   ![1564223355439](https://raw.githubusercontent.com/jssda/picbed/master/1564223355439.png)
 
 3. 解锁
 
-   ![1564223403213](Untitled.assets/1564223403213.png)
+   ![1564223403213](https://raw.githubusercontent.com/jssda/picbed/master/1564223403213.png)
 
 4. 登录测试
 
-   ![1564223446587](Untitled.assets/1564223446587.png)
+   ![1564223446587](https://raw.githubusercontent.com/jssda/picbed/master/1564223446587.png)
 
 5. 查看表结构
 
-   ![1564223508617](Untitled.assets/1564223508617.png)
+   ![1564223508617](https://raw.githubusercontent.com/jssda/picbed/master/1564223508617.png)
 
 6. 使用命令查看表结构
 
    打开一个新的command window, 输入指令 desc countries, 就可以查看表的结构
 
-   ![1564223622737](Untitled.assets/1564223622737.png)
+   ![1564223622737](https://raw.githubusercontent.com/jssda/picbed/master/1564223622737.png)
 

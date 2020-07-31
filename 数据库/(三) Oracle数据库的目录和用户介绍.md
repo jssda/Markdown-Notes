@@ -2,11 +2,11 @@
 
 # Oracle的目录结构
 
-![1563762748303](assets/1563762748303.png)
+![1563762748303](https://raw.githubusercontent.com/jssda/picbed/master/1563762748303.png)
 
 ## 1. admin目录
 
-![1563762823724](assets/1563762823724.png)
+![1563762823724](https://raw.githubusercontent.com/jssda/picbed/master/1563762823724.png)
 
 记录Oracle实例的配置, 运行日志等文件, 每个实例一个目录(上图只有一个实例, 所以只有一个目录).
 
@@ -14,7 +14,7 @@ SID: System IDentifier的缩写, 是Oracle实例的唯一标记. 在Oracle中一
 
 ## 2. cfgtoologs目录
 
-![1563762995961](assets/1563762995961.png)
+![1563762995961](https://raw.githubusercontent.com/jssda/picbed/master/1563762995961.png)
 
 分别存放当运行dbca, emca, netca等图形化配置程序的log
 
@@ -24,23 +24,23 @@ SID: System IDentifier的缩写, 是Oracle实例的唯一标记. 在Oracle中一
 
 ## 4. diag目录
 
-![1563763091338](assets/1563763091338.png)
+![1563763091338](https://raw.githubusercontent.com/jssda/picbed/master/1563763091338.png)
 
 Oracle11g 新添加的一个重组目录. 其中的子目录, 基本上Oracle每个组件都有了自己的单独目录, 在Oracle10g中我们一直诟病的log文件散放在四处的问题终于得到解决, 无论是asm还是crs还是rdbms, 所有组件需要被用来诊断的log文件都存放在类这个新的目录下
 
 ## 5. flash_recovery_area(闪回区)目录
 
-![1563763257122](assets/1563763257122.png)
+![1563763257122](https://raw.githubusercontent.com/jssda/picbed/master/1563763257122.png)
 
 闪回区: 分配一个特定的目录位置来存放一些特定的恢复文件, 用于集中和简化管理数据库恢复工作, 闪回区可存储完全的数据库文件备份, 增量备份, 数据文件副本, 当前的控制文件, 备份的控制文件, spfile文件, 快照控制文件, 联机日志文件, 归档文件, 块跟踪文件, 闪回日志
 
 ## 6. oradata目录
 
-![1563763436856](assets/1563763436856.png)
+![1563763436856](https://raw.githubusercontent.com/jssda/picbed/master/1563763436856.png)
 
 存放数据文件
 
-![1563763459404](assets/1563763459404.png)
+![1563763459404](https://raw.githubusercontent.com/jssda/picbed/master/1563763459404.png)
 
 1.  CONTROL01.CTL
 
@@ -76,7 +76,7 @@ Oracle11g 新添加的一个重组目录. 其中的子目录, 基本上Oracle每
 
 ## 7. product目录
 
-![1563763893470](assets/1563763893470.png)
+![1563763893470](https://raw.githubusercontent.com/jssda/picbed/master/1563763893470.png)
 
 Oracle RDBMS的软件存放目录. RDBMS即关系数据库管理系统(Relational Database Management System).
 

@@ -13,23 +13,23 @@ JSTL 是apache堆EL表达式的扩展(也就是JSTL依赖EL), JSTL是标签语�
 
 2. 点击右侧taglibs
 
-   ![1568125134577](assets/1568125134577.png)
+   ![1568125134577](https://raw.githubusercontent.com/jssda/picbed/master/1568125134577.png)
 
 3. 页面上有个很明显的download
 
-   ![1568125167018](assets/1568125167018.png)
+   ![1568125167018](https://raw.githubusercontent.com/jssda/picbed/master/1568125167018.png)
 
 4. 下前两个jar文件一般就够用了
 
-   ![1568125201619](assets/1568125201619.png)
+   ![1568125201619](https://raw.githubusercontent.com/jssda/picbed/master/1568125201619.png)
 
 5. 下载下来放入web文件夹下WEB-INF下的lib文件夹下
 
-   ![1568125266030](assets/1568125266030.png)
+   ![1568125266030](https://raw.githubusercontent.com/jssda/picbed/master/1568125266030.png)
 
 6. 点开项目配置
 
-   ![1568125317713](assets/1568125317713.png)
+   ![1568125317713](https://raw.githubusercontent.com/jssda/picbed/master/1568125317713.png)
 
 7. 添加jars or directories, 选择lib文件夹, directory添加. 即部署到了项目中
 
@@ -249,11 +249,11 @@ forTokens标签, 遍历一个字符串, 指定字符分隔成数组
 
 属性如下
 
-![1568167467914](assets/1568167467914.png)
+![1568167467914](https://raw.githubusercontent.com/jssda/picbed/master/1568167467914.png)
 
 pattern符号如下
 
-![1568167505483](assets/1568167505483.png)
+![1568167505483](https://raw.githubusercontent.com/jssda/picbed/master/1568167505483.png)
 
 ```jsp
 <c:set var="balance" value="120000.2309"/>
@@ -278,7 +278,7 @@ pattern符号如下
 
 属性如下
 
-![1568168410412](assets/1568168410412.png)
+![1568168410412](https://raw.githubusercontent.com/jssda/picbed/master/1568168410412.png)
 
 ```jsp
 <c:set var="str" value="-1555468.55"/>
@@ -292,11 +292,11 @@ fmt:formatDate格式化日期标签
 
 属性如下
 
-![1568168950396](assets/1568168950396.png)
+![1568168950396](https://raw.githubusercontent.com/jssda/picbed/master/1568168950396.png)
 
 格式化模式如下
 
-![1568168976048](assets/1568168976048.png)
+![1568168976048](https://raw.githubusercontent.com/jssda/picbed/master/1568168976048.png)
 
 ```jsp
 <h4>格式化日期</h4>

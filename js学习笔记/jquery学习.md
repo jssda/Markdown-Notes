@@ -342,7 +342,7 @@ val(); //匹配元素的值
 
 ## jquery 属性操作
 
-![1558705333222](jquery学习.assets/1558705333222.png)
+![1558705333222](https://raw.githubusercontent.com/jssda/picbed/master/1558705333222.png)
 
 ## jquery 的css操作
 

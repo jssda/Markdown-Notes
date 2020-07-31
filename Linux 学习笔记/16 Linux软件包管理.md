@@ -59,7 +59,7 @@ rpm -Fvh
 
 ### RMP查询
 
-![image-20191122114151876](assets/image-20191122114151876.png)
+![image-20191122114151876](https://raw.githubusercontent.com/jssda/picbed/master/image-20191122114151876.png)
 
 查询软件是否被安装(不需要加版本)
 
@@ -105,7 +105,7 @@ yum remove packageName
 
 ## yum配置
 
-![image-20191122120730341](assets/image-20191122120730341.png)
+![image-20191122120730341](https://raw.githubusercontent.com/jssda/picbed/master/image-20191122120730341.png)
 
 ```
 ●[base]: 代表软件库的名字!中括号- -定要存在，里面的名称则可以随意取。但是不能有两个相同的软件库

@@ -2,7 +2,7 @@
 
 # java.util.Date
 
-![1561601353124](assets/1561601353124.png)
+![1561601353124](https://raw.githubusercontent.com/jssda/picbed/master/1561601353124.png)
 
 ## 时区
 

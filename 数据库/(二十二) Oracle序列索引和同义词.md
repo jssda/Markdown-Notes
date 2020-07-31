@@ -40,11 +40,11 @@ Sequence created
 
 ### 通过PL/SQL Developer工具创建
 
-![1564712467993](assets/1564712467993.png)
+![1564712467993](https://raw.githubusercontent.com/jssda/picbed/master/1564712467993.png)
 
 填写完毕Apply即可
 
-![1564712492451](assets/1564712492451.png)
+![1564712492451](https://raw.githubusercontent.com/jssda/picbed/master/1564712492451.png)
 
 ## 操作序列
 

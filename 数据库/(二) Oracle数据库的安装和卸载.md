@@ -4,45 +4,45 @@
 
 此次安装为Oracle11g, 以图片形式列出安装步骤
 
-![1563694310249](assets/1563694310249.png)
+![1563694310249](https://raw.githubusercontent.com/jssda/picbed/master/1563694362808.png)
 
-![1563694362808](assets/1563694362808.png)
+![1563694362808](https://raw.githubusercontent.com/jssda/picbed/master/1563694362808.png)
 
 下一个界面, 基本都会选择第一个, 第二个仅会安装一个实例, 用于连接数据库, 在工作时候连接公司数据库时候可能会安装这个, 学习用的化安装第一个就没问题了
 
-![1563694411634](assets/1563694411634.png)
+![1563694411634](https://raw.githubusercontent.com/jssda/picbed/master/1563694411634.png)
 
 这个很简单, 一般桌面类就行了
 
-![1563694559201](assets/1563694559201.png)
+![1563694559201](https://raw.githubusercontent.com/jssda/picbed/master/1563694559201.png)
 
 Oracle安装的基目录可以自己选择, 软件位置选择的目录中不能包含空格, 所以Program Files文件夹就不能使用, 数据库版本选择标准版, 用于学习, 字符集改为Unicode字符集. 全局数据库名可更改, 管理口令自己设置, 过于简单可能会提示, 不过不用担心, 忽略就行
 
-![1563694780136](assets/1563694780136.png)
+![1563694780136](https://raw.githubusercontent.com/jssda/picbed/master/1563694780136.png)
 
-![1563694960532](assets/1563694960532.png)
+![1563694960532](https://raw.githubusercontent.com/jssda/picbed/master/1563694960532.png)
 
-![1563694977668](assets/1563694977668.png)
+![1563694977668](https://raw.githubusercontent.com/jssda/picbed/master/1563694977668.png)
 
 然后会经历漫长的等待
 
-![1563695013604](assets/1563695013604.png)
+![1563695013604](https://raw.githubusercontent.com/jssda/picbed/master/1563695013604.png)
 
 可能会让你安装这个, 安装就行了
 
-![1563695603679](assets/1563695603679.png)
+![1563695603679](https://raw.githubusercontent.com/jssda/picbed/master/1563695603679.png)
 
 接着等
 
-![1563695674897](assets/1563695674897.png)
+![1563695674897](https://raw.githubusercontent.com/jssda/picbed/master/1563695674897.png)
 
 完成之后会有提示
 
-![1563696102067](assets/1563696102067.png)
+![1563696102067](https://raw.githubusercontent.com/jssda/picbed/master/1563696102067.png)
 
 给两个账户设置口令
 
-![1563696074378](assets/1563696074378.png)
+![1563696074378](https://raw.githubusercontent.com/jssda/picbed/master/1563696074378.png)
 
 确认完成安装
 

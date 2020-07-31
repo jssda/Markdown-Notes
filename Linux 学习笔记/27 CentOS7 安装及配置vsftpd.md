@@ -24,7 +24,7 @@
    vim /etc/password
    ```
 
-   ![image-20191213222150932](assets/image-20191213222150932.png)
+   ![image-20191213222150932](https://raw.githubusercontent.com/jssda/picbed/master/image-20191213222150932.png)
 
 5. 修改selinux
 
@@ -32,7 +32,7 @@
    getsebool -a | grep ftp
    ```
 
-   ![image-20191213222313134](assets/image-20191213222313134.png)
+   ![image-20191213222313134](https://raw.githubusercontent.com/jssda/picbed/master/image-20191213222313134.png)
 
 6. 将圈住的两个改为on
 
@@ -47,11 +47,11 @@
    vim /etc/vsftpd/vsftpd.conf
    ```
 
-   ![image-20191213222536144](assets/image-20191213222536144.png)
+   ![image-20191213222536144](https://raw.githubusercontent.com/jssda/picbed/master/image-20191213222536144.png)
 
    在文件的最后添加
 
-   ![image-20191213222556709](assets/image-20191213222556709.png)
+   ![image-20191213222556709](https://raw.githubusercontent.com/jssda/picbed/master/image-20191213222556709.png)
 
 8. 修改访问
 

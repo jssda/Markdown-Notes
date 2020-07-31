@@ -309,5 +309,5 @@ div标签本身是没有任何意义的. 作用就是把网页进行划分
 
 布局出网页如此
 
-![1565865117039](assets/1565865117039.png)
+![1565865117039](https://raw.githubusercontent.com/jssda/picbed/master/1565865117039.png)
 

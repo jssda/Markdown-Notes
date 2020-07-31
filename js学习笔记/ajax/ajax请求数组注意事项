@@ -1,0 +1,29 @@
+# ajax请求数组注意事项
+
+```js
+ids = [];
+$.each(data, function(index, element) {
+    ids.push(element.id);
+})
+// 批量删除信息
+$.ajax({
+    type: 'POST',
+    // contentType: 'application/json; charset=utf-8', // 请求类型
+    traditional:true,//防止深度序列化
+    url: "http://localhost:18090/dept/delDepts",
+    async: true, // 是否异步处理
+    data: {
+        ids: ids
+    },
+    success: function (data) { // 请求成功回调数据
+        console.log(data)
+    },
+    error: function (errorInfo) { // 请求失败回调数据
+
+    }
+})
+```
+
+传递数组的时候, 请求头不能是`application/json; charset=utf8`, 当指定请求头传递一个json对象的时候, 后台应该用`@RequestBody`注解接收请求.   
+
+此例中, 传递一个数组, 需要使用traditional:true来防止深度序列化. 后台可使用List接收数据.

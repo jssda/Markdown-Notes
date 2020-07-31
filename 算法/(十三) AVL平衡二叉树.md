@@ -33,11 +33,11 @@ AVL的平衡维护是基于树的旋转
 
 假如存在如下一棵树
 
-![1567559961434](assets/1567559961434.png)
+![1567559961434](https://raw.githubusercontent.com/jssda/picbed/master/1567559961434.png)
 
 可以看到, 此树是不平巷的, 旋转之后为这样
 
-![0512](assets/1567560010512.png)
+![0512](https://raw.githubusercontent.com/jssda/picbed/master/1567560010512.png)
 
 细想一下, 此树的二分搜索树的性质没有改变, 同时, 它变得平衡了.
 
@@ -45,9 +45,9 @@ AVL的平衡维护是基于树的旋转
 
 与右旋转相对, 左旋转是这样的
 
-![1567560198113](assets/1567560198113.png)
+![1567560198113](https://raw.githubusercontent.com/jssda/picbed/master/1567560198113.png)
 
-![1567560217945](assets/1567560217945.png)
+![1567560217945](https://raw.githubusercontent.com/jssda/picbed/master/1567560217945.png)
 
 ### 树的不平衡情况
 
@@ -57,13 +57,13 @@ AVL的平衡维护是基于树的旋转
 
 对y执行右旋转操作, 即可将此树变成平衡树
 
-![1567560296285](assets/1567560296285.png)
+![1567560296285](https://raw.githubusercontent.com/jssda/picbed/master/1567560296285.png)
 
 #### RR
 
 对y进行左旋转, 即可让此树变成平衡树
 
-![1567560306035](assets/1567560306035.png)
+![1567560306035](https://raw.githubusercontent.com/jssda/picbed/master/1567560306035.png)
 
 #### LR
 
@@ -71,13 +71,13 @@ AVL的平衡维护是基于树的旋转
 
 再对y进行右旋转, 即可将此树变成平衡树
 
-![1567560324073](assets/1567560324073.png)
+![1567560324073](https://raw.githubusercontent.com/jssda/picbed/master/1567560324073.png)
 
 #### RL
 
 先对x进行右旋转, 再对y进行左旋转
 
-![1567560340779](assets/1567560340779.png)
+![1567560340779](https://raw.githubusercontent.com/jssda/picbed/master/1567560340779.png)
 
 ## 代码实现
 

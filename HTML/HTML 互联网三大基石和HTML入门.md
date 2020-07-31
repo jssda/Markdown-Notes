@@ -12,7 +12,7 @@
 
 ## 理解示意图
 
-![1565839862681](assets/1565839862681.png)
+![1565839862681](https://raw.githubusercontent.com/jssda/picbed/master/1565839862681.png)
 
 ## HTML入门
 

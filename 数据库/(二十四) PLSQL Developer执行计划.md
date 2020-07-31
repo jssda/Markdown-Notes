@@ -8,9 +8,9 @@
 
 ## 配置执行计划需要显示的项
 
-![1564755352796](assets/1564755352796.png)
+![1564755352796](https://raw.githubusercontent.com/jssda/picbed/master/1564755352796.png)
 
-![1564755475388](assets/1564755475388.png)
+![1564755475388](https://raw.githubusercontent.com/jssda/picbed/master/1564755475388.png)
 
 ## 执行计划的常用列字段解释
 
@@ -21,7 +21,7 @@
 
 ## 使用执行计划
 
-![1564756208041](assets/1564756208041.png)
+![1564756208041](https://raw.githubusercontent.com/jssda/picbed/master/1564756208041.png)
 
 选中执行语句, 按F5, 即可打开执行计划
 
@@ -120,7 +120,7 @@ CBO是一种比RBO更加合理, 可靠的优化器, 在Oracle 10g中完全取代
 select * from employees;
 ```
 
-![1564797696451](assets/1564797696451.png)
+![1564797696451](https://raw.githubusercontent.com/jssda/picbed/master/1564797696451.png)
 
 可以看到, 分析结果为, 此表进行了全表扫描, 代价值为3. 共搜索了107条数据, 搜索字节为7383字节
 
@@ -132,7 +132,7 @@ select * from employees;
 select * from employees where employee_id = 100
 ```
 
-![1564798431152](assets/1564798431152.png)
+![1564798431152](https://raw.githubusercontent.com/jssda/picbed/master/1564798431152.png)
 
 cost代价为1, 为什么这次这么少呢? 可以看到, 这次扫描使用了唯一约束扫描, 消耗的代价非常低. 故而如果想优化sql, 那么使用唯一约束进行查询是个很好的选择. 
 
@@ -140,13 +140,13 @@ cost代价为1, 为什么这次这么少呢? 可以看到, 这次扫描使用了
 
 示例: 查询雇员名字为Tarloy的雇员
 
-![1564799191637](assets/1564799191637.png)
+![1564799191637](https://raw.githubusercontent.com/jssda/picbed/master/1564799191637.png)
 
 索引中有一个复合索引, 而且查询的时候使用的是前导列, 那么此次搜索使用的便是范围索引扫描, 代价消耗还是可以的
 
 示例: 查询first_name为Steven的雇员
 
-![1564799362528](assets/1564799362528.png)
+![1564799362528](https://raw.githubusercontent.com/jssda/picbed/master/1564799362528.png)
 
 虽然表中有复合索引, 但是查找的时候没有包含前导列, 所以就变成了全表扫描.
 
@@ -154,7 +154,7 @@ cost代价为1, 为什么这次这么少呢? 可以看到, 这次扫描使用了
 
 示例: 查询名字当中含有a的雇员
 
-![1564799523529](assets/1564799523529.png)
+![1564799523529](https://raw.githubusercontent.com/jssda/picbed/master/1564799523529.png)
 
 like 条件肯定会进行全表扫描, 他需要一个一个比对查找
 
@@ -162,7 +162,7 @@ like 条件肯定会进行全表扫描, 他需要一个一个比对查找
 
 示例: 对雇员薪水做=, >, < , <> 条件 (salary并没有索引)
 
-![1564799956383](assets/1564799956383.png)
+![1564799956383](https://raw.githubusercontent.com/jssda/picbed/master/1564799956383.png)
 
 全表扫描, 代价为3
 
@@ -173,19 +173,19 @@ SQL> create index emp_salary_ix on employees(salary);
 Index created
 ```
 
-![1564800156408](assets/1564800156408.png)
+![1564800156408](https://raw.githubusercontent.com/jssda/picbed/master/1564800156408.png)
 
 创建索引之后, 进行的是索引范围扫描, 代价值变小了
 
-![1564800210256](assets/1564800210256.png)
+![1564800210256](https://raw.githubusercontent.com/jssda/picbed/master/1564800210256.png)
 
 小于比较也一样
 
-![1564800232953](assets/1564800232953.png)
+![1564800232953](https://raw.githubusercontent.com/jssda/picbed/master/1564800232953.png)
 
 虽然有索引, 但是 大于比较是进行全表扫描的. 因为数据库不能确定大于多少, 所以必须进行全表扫描
 
-![1564800310933](assets/1564800310933.png)
+![1564800310933](https://raw.githubusercontent.com/jssda/picbed/master/1564800310933.png)
 
 不等于比较和大于比较一样, 都是全表扫描. 
 
@@ -197,7 +197,7 @@ Index created
 
 示例; 使用等值连接, 查询所有部门以及所有部门下的雇员
 
-![1564800616939](assets/1564800616939.png)
+![1564800616939](https://raw.githubusercontent.com/jssda/picbed/master/1564800616939.png)
 
 分析一下此次查询, 首先, 进行了一次索引全表扫描, 因为先搜索了department_id, 而department_id 是departments表的主键. 之后进行了一次全表扫描. 这次查找的是employees表中的department_id. 因为此列没有索引, 所以是全表扫描. 然后就是合并连接. 如果想优化此次查询, 我们可以给employees.department_id新建一个索引. 
 
@@ -205,7 +205,7 @@ Index created
 
 使用子查询, 查询所有部门以及所有部门下的雇员.
 
-![1564800962321](assets/1564800962321.png)
+![1564800962321](https://raw.githubusercontent.com/jssda/picbed/master/1564800962321.png)
 
 同样是查询所有部门和部门员工, 子查询代价比内连接小了一半. 所以我们说, 子查询某些情况下, 性能要优于内连接. 
 
@@ -213,13 +213,13 @@ Index created
 
 查询所有部门和部门员工, 包括没有部门的员工
 
-![1564801241968](assets/1564801241968.png)
+![1564801241968](https://raw.githubusercontent.com/jssda/picbed/master/1564801241968.png)
 
 此次扫描进行了两次全表扫描, 可是哟代价是很低的. 
 
 查询所有雇员和部门, 包含没有雇员的部门
 
-![1564801331729](assets/1564801331729.png)
+![1564801331729](https://raw.githubusercontent.com/jssda/picbed/master/1564801331729.png)
 
 这次代价比上次低, 因为这次进行了一次索引全表扫描.
 

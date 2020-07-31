@@ -89,69 +89,69 @@ ADR_BASE_LISTENER = E:\oracle
 
 ## 配置监听程序
 
-![1563851953538]((七) Oracle的连接配置.assets/1563851953538.png)
+![1563851953538](https://raw.githubusercontent.com/jssda/picbed/master/1563851953538.png)
 
-![1563852034496]((七) Oracle的连接配置.assets/1563852034496.png)
+![1563852034496](https://raw.githubusercontent.com/jssda/picbed/master/1563852034496.png)
 
 重新配置好了
 
-![1563852089531]((七) Oracle的连接配置.assets/1563852089531.png)
+![1563852089531](https://raw.githubusercontent.com/jssda/picbed/master/1563852089531.png)
 
-![1563852102340]((七) Oracle的连接配置.assets/1563852102340.png)
+![1563852102340](https://raw.githubusercontent.com/jssda/picbed/master/1563852102340.png)
 
-![1563852120237]((七) Oracle的连接配置.assets/1563852120237.png)
+![1563852120237](https://raw.githubusercontent.com/jssda/picbed/master/1563852120237.png)
 
 配置连接协议
 
-![1563852144951]((七) Oracle的连接配置.assets/1563852144951.png)
+![1563852144951](https://raw.githubusercontent.com/jssda/picbed/master/1563852144951.png)
 
 使用标准端口
 
-![1563852154152]((七) Oracle的连接配置.assets/1563852154152.png)
+![1563852154152](https://raw.githubusercontent.com/jssda/picbed/master/1563852154152.png)
 
-![1563852180025]((七) Oracle的连接配置.assets/1563852180025.png)
+![1563852180025](https://raw.githubusercontent.com/jssda/picbed/master/1563852180025.png)
 
-![1563852197439]((七) Oracle的连接配置.assets/1563852197439.png)
+![1563852197439](https://raw.githubusercontent.com/jssda/picbed/master/1563852197439.png)
 
 这时打开编辑器, 就会发现已经重写加载了
 
-![1563852246252]((七) Oracle的连接配置.assets/1563852246252.png)
+![1563852246252](https://raw.githubusercontent.com/jssda/picbed/master/1563852246252.png)
 
 ## 配置本地网络服务
 
 > 本地网络服务,就是在同一局域网, 我能访问你的Oracle数据库服务
 
-![1563852372928]((七) Oracle的连接配置.assets/1563852372928.png)
+![1563852372928](https://raw.githubusercontent.com/jssda/picbed/master/1563852372928.png)
 
 没配置过, 添加一个
 
-![1563852392516]((七) Oracle的连接配置.assets/1563852392516.png)
+![1563852392516](https://raw.githubusercontent.com/jssda/picbed/master/1563852392516.png)
 
 需要访问的服务器中tnsnames.ora中配置的服务器别名
 
-![1563852452614]((七) Oracle的连接配置.assets/1563852452614.png)
+![1563852452614](https://raw.githubusercontent.com/jssda/picbed/master/1563852452614.png)
 
 连接协议
 
-![1563852472623]((七) Oracle的连接配置.assets/1563852472623.png)
+![1563852472623](https://raw.githubusercontent.com/jssda/picbed/master/1563852472623.png)
 
 添加服务器主机的IP地址
 
-![1563852531852]((七) Oracle的连接配置.assets/1563852531852.png)
+![1563852531852](https://raw.githubusercontent.com/jssda/picbed/master/1563852531852.png)
 
 可进行连接测试
 
-![1563852550321]((七) Oracle的连接配置.assets/1563852550321.png)
+![1563852550321](https://raw.githubusercontent.com/jssda/picbed/master/1563852550321.png)
 
 更改登录
 
-![1563852597827]((七) Oracle的连接配置.assets/1563852597827.png)
+![1563852597827](https://raw.githubusercontent.com/jssda/picbed/master/1563852597827.png)
 
-![1563852792143]((七) Oracle的连接配置.assets/1563852792143.png)
+![1563852792143](https://raw.githubusercontent.com/jssda/picbed/master/1563852792143.png)
 
 可以更改一个自己想要的网络服务名
 
-![1563852938955]((七) Oracle的连接配置.assets/1563852938955.png)
+![1563852938955](https://raw.githubusercontent.com/jssda/picbed/master/1563852938955.png)
 
-![1563852962253]((七) Oracle的连接配置.assets/1563852962253.png)
+![1563852962253](https://raw.githubusercontent.com/jssda/picbed/master/1563852962253.png)
 

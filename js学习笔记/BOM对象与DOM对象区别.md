@@ -1,8 +1,8 @@
 # BOM对象和DOM对象的区别
 
-![1566130360497](assets/1566130360497.png)
+![1566130360497](https://raw.githubusercontent.com/jssda/picbed/master/1566130360498.png)
 
-![1566130369815](assets/1566130369815.png)
+![1566130369815](https://raw.githubusercontent.com/jssda/picbed/master/1566130369816.png)
 
 ## 什么是BOM
 

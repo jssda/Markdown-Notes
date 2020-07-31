@@ -286,7 +286,7 @@ new Vue({
 
 ### 2.3.5 生命周期图示
 
-<img src="vue%E5%AD%A6%E4%B9%A0.assets/lifecycle.png" alt="生命周期图示（来自vue官方网站）" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/jssda/picbed/master/lifecycle.png" alt="生命周期图示（来自vue官方网站）" style="zoom:50%;" />
 
 ## 2.4 模板语法
 

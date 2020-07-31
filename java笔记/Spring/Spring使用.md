@@ -28,7 +28,7 @@ https://repo.spring.io/libs-release-local/org/springframework/spring/
 
 (commons-logging被其他几个包所依赖)
 
-![1571297535466](assets/1571297535466.png)
+![1571297535466](https://raw.githubusercontent.com/jssda/picbed/master/1571297535466.png)
 
 ### 到底什么是IOC?
 

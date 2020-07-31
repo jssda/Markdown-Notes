@@ -17,7 +17,7 @@
 
 ## 3. 程序操作数据库流程
 
-![1565147190247](assets/1565147190247.png)
+![1565147190247](https://raw.githubusercontent.com/jssda/picbed/master/1565147190247.png)
 
 # 二. JDBC3.0标准中的常用接口与类
 
@@ -155,17 +155,17 @@ MySQL驱动下载地址: [https://dev.mysql.com/downloads/connector/j/ ](https:/
 
 新建一个目录, 起名为lib
 
-![1565162607633](assets/1565162607633.png)
+![1565162607633](https://raw.githubusercontent.com/jssda/picbed/master/1565162607633.png)
 
 将库文件拷贝到lib目录下
 
-![1565162679464](assets/1565162679464.png)
+![1565162679464](https://raw.githubusercontent.com/jssda/picbed/master/1565162679464.png)
 
-![1565162693015](assets/1565162693015.png)
+![1565162693015](https://raw.githubusercontent.com/jssda/picbed/master/1565162693015.png)
 
 右击添加过来的jdbc, 作为库文件添加. 这个时候就将jdbc添加到项目了
 
-![1565162728121](assets/1565162728121.png)
+![1565162728121](https://raw.githubusercontent.com/jssda/picbed/master/1565162728121.png)
 
 ## 3. 执行sql语句代码实现
 
@@ -730,7 +730,7 @@ private static String genSql(Departments departments) {
 
 ## 4. 项目分层图解
 
-![1565272720389](assets/1565272720389.png)
+![1565272720389](https://raw.githubusercontent.com/jssda/picbed/master/1565272720389.png)
 
 ## 5. 分层代码
 

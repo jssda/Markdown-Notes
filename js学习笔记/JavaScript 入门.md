@@ -15,7 +15,7 @@ JavaScript 一种直译式脚本语言， 是一种动态类型、 弱类型、
 
 ## JavaScript组成
 
-![1566096537520](assets/1566096537520.png)
+![1566096537520](https://raw.githubusercontent.com/jssda/picbed/master/1566096537520.png)
 
 - ECMAScript: JavaScript的核心
 - 文档对象模型(DOM): DOM(文档对象模型)是HTML和XML的应用接口(API). DOM将把整个页面规划成由节点层级构成的文档

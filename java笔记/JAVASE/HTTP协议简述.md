@@ -4,7 +4,7 @@
 
 用户打开web浏览器(常见的HTTP客户端), 输入URL地址, 就能接收到HTTP服务器发送过来的网页, 即HTTP遵循请求(Request)/应答(Response)模型, web浏览器向Web服务器发送请求, Web服务器处理请求并返回适当的应答, 所有HTTP连接都被构造成一套请求与应答
 
-![1563323293401](assets/1563323293401.png)
+![1563323293401](https://raw.githubusercontent.com/jssda/picbed/master/1563323293401.png)
 
 ## 请求格式
 

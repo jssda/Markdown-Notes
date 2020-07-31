@@ -38,11 +38,11 @@
 
 ### 字节流体系
 
-![1561943850512](assets/1561943850512.png)
+![1561943850512](https://raw.githubusercontent.com/jssda/picbed/master/1561943850512.png)
 
 ### 字符流体系
 
-![1561943903610](assets/1561943903610.png)
+![1561943903610](https://raw.githubusercontent.com/jssda/picbed/master/1561943903610.png)
 
 ## 四大基本抽象类
 
@@ -523,7 +523,7 @@ private  static  void readFromByteArr(byte[] buf) {
 
 ### 结构
 
-![装饰器模式](assets/装饰器模式.png)
+![装饰器模式](https://raw.githubusercontent.com/jssda/picbed/master/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F.png)
 
 ### 代码测试
 

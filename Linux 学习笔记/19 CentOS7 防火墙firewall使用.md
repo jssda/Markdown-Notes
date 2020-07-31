@@ -9,7 +9,7 @@
 众所周知，在RHEL7系统中，firewalld防火墙取代了iptables防火墙。我们都知道iptables的防火墙策略是交由内核层面的netfilter网络过滤器来处理的，而firewalld则是交由内核层面的nftables包过滤框架来处理。
 相较于iptables防火墙而言，firewalld支持动态更新技术并加入了区域（zone）的概念。简单来说，区域就是firewalld预先准备了几套防火墙策略集合（策略模板），用户可以根据生产场景的不同而选择合适的策略集合，从而实现防火墙策略之间的快速切换。
 
-![preview](assets/v2-3f4fd9b095b11c09278a2a41f7aacc16_r.jpg)
+![preview](https://raw.githubusercontent.com/jssda/picbed/master/v2-3f4fd9b095b11c09278a2a41f7aacc16_r.jpg)
 
 **表1：firewalld中常用的区域名称及策略规则**
 
@@ -100,7 +100,7 @@ firewall-cmd --zone=internal --list-all   # 查看指定区域设置
 firewall-cmd --list-all   # 查看默认区域设置
 ```
 
-![image-20191211182247796](assets/image-20191211182247796.png)
+![image-20191211182247796](https://raw.githubusercontent.com/jssda/picbed/master/image-20191211182247796.png)
 
 Target：目标
 

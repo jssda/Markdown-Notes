@@ -36,7 +36,7 @@ line-height
 
 风格:
 
-![1565926756070](assets/1565926756070.png)
+![1565926756070](https://raw.githubusercontent.com/jssda/picbed/master/1565926756070.png)
 
 ### 背景
 

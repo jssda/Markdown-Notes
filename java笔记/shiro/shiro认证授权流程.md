@@ -4,7 +4,7 @@
 
 ### 图示
 
-![image-20191104100517201](assets/image-20191104100517201.png)
+![image-20191104100517201](https://raw.githubusercontent.com/jssda/picbed/master/image-20191104100517201.png)
 
 ### 文字流程
 
@@ -21,7 +21,7 @@
 
 ### 图示
 
-![image-20191104102209814](assets/image-20191104102209814.png)
+![image-20191104102209814](https://raw.githubusercontent.com/jssda/picbed/master/image-20191104102209814.png)
 
 ### 文字流程
 

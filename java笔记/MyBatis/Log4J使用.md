@@ -99,7 +99,7 @@ Java代码
 输出格式为：[08:58:59:412][INFO] (com.soon.action:35) - 服务器启动
 ```
 
-![1565508238290](assets/1565508238290.png)
+![1565508238290](https://raw.githubusercontent.com/jssda/picbed/master/1565508238290.png)
 
 #### 3.2.3 输出到文件
 

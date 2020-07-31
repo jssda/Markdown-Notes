@@ -382,7 +382,7 @@ EMPLOYEE_ID LAST_NAME                 DEPARTMENT_ID
    2019/8/5 17:09:57
    ```
 
-   ![1564391362503](assets/1564391362503.png)
+   ![1564391362503](https://raw.githubusercontent.com/jssda/picbed/master/1564391362503.png)
 
 4. last_day(date); 返回当前月份的最后一天
 

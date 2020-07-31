@@ -5,7 +5,7 @@
 - 使用 REGEXP 关键字表示正则匹配。
 - 默认忽略大小写， 如果要区分大小写， 使用 BINARY 关键字 
 
-![1564976088569](assets/1564976088569.png)
+![1564976088569](https://raw.githubusercontent.com/jssda/picbed/master/1564976088569.png)
 
 ## 示例
 

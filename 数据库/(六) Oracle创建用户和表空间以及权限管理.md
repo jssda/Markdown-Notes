@@ -42,15 +42,15 @@ create user JSSD
 
 ## 通过PL/SQL Developer工具创建用户
 
-![1563797958386]((六) Oracle创建用户和表空间以及权限管理.assets/1563797958386.png)
+![1563797958386](https://raw.githubusercontent.com/jssda/picbed/master/1563797958386.png)
 
 增加用户信息, 点击Apply
 
-![1563798015279]((六) Oracle创建用户和表空间以及权限管理.assets/1563798015279.png)
+![1563798015279](https://raw.githubusercontent.com/jssda/picbed/master/1563798015279.png)
 
 这时刷新user对象, 出现了jssd用户
 
-![1563798113895]((六) Oracle创建用户和表空间以及权限管理.assets/1563798113895.png)
+![1563798113895](https://raw.githubusercontent.com/jssda/picbed/master/1563798113895.png)
 
 # Oracle的用户权限管理
 
@@ -58,21 +58,21 @@ create user JSSD
 
 创建完用户以后, 使用PL/SQL登录jssd用户
 
-![1563798459608]((六) Oracle创建用户和表空间以及权限管理.assets/1563798459608.png)
+![1563798459608](https://raw.githubusercontent.com/jssda/picbed/master/1563798459608.png)
 
 登录不上, 报了个错?? 不然, Oracle是一个管理权限非常严格的数据库
 
-![1563798494342]((六) Oracle创建用户和表空间以及权限管理.assets/1563798494342.png)
+![1563798494342](https://raw.githubusercontent.com/jssda/picbed/master/1563798494342.png)
 
 提示说没有创建session的权限, 那我们给他分配权限
 
 找到用户, 点击edit
 
-![1563798627241]((六) Oracle创建用户和表空间以及权限管理.assets/1563798627241.png)
+![1563798627241](https://raw.githubusercontent.com/jssda/picbed/master/1563798627241.png)
 
 依然是上次创建用户的界面
 
-![1563799034749]((六) Oracle创建用户和表空间以及权限管理.assets/1563799034749.png)
+![1563799034749](https://raw.githubusercontent.com/jssda/picbed/master/1563799034749.png)
 
 ## 对象权限
 
@@ -111,13 +111,13 @@ create user JSSD
 >
 > [博客]:<https://www.cnblogs.com/cycsa/archive/2013/05/21/3091199.html>
 
-![1563799631990]((六) Oracle创建用户和表空间以及权限管理.assets/1563799631990.png)
+![1563799631990](https://raw.githubusercontent.com/jssda/picbed/master/1563799631990.png)
 
 ## 为用户分配创建session和建表权限
 
 ### 登录用户权限(创建Session)
 
-![1563799845977]((六) Oracle创建用户和表空间以及权限管理.assets/1563799845977.png)
+![1563799845977](https://raw.githubusercontent.com/jssda/picbed/master/1563799845977.png)
 
 点击左下角Apply就分配了登录权限
 
@@ -131,7 +131,7 @@ grant create session to JSSD;
 
 让用户能够建表, 我们需要给用户分配create any table权限, 在这里, 直接给用户一个resource角色即可
 
-![1563800075247]((六) Oracle创建用户和表空间以及权限管理.assets/1563800075247.png)
+![1563800075247](https://raw.githubusercontent.com/jssda/picbed/master/1563800075247.png)
 
 左下角应用即可分配完毕
 

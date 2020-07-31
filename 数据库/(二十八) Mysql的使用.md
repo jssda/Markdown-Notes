@@ -2,7 +2,7 @@
 
 使用show databases;查看数据库
 
-![1564889641257](assets/1564889641257.png)
+![1564889641257](https://raw.githubusercontent.com/jssda/picbed/master/1564889641257.png)
 
 # MySql与Oracle的区别
 

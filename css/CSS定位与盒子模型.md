@@ -33,7 +33,7 @@ postion: static: 初始的定位操作
 
 # CSS盒子模型
 
-![1565951915730](assets/1565951915730.png)
+![1565951915730](https://raw.githubusercontent.com/jssda/picbed/master/1565951915730.png)
 
 ## 特点
 

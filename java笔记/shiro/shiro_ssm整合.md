@@ -171,7 +171,7 @@ public class UserController {
 
 各个过滤器对应名称
 
-![image-20191118111310815](assets/image-20191118111310815.png)
+![image-20191118111310815](https://raw.githubusercontent.com/jssda/picbed/master/image-20191118111310815.png)
 
 ### 表单过滤器
 

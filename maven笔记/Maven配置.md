@@ -110,7 +110,7 @@ d)   runtime：测试、运行、打包时有效；
 
 e)   system：不推荐使用，使用system作用域不会去本地仓库寻找依赖，要指定本地路径；
 
-![image-20191105175551920](assets/image-20191105175551920.png)
+![image-20191105175551920](https://raw.githubusercontent.com/jssda/picbed/master/image-20191105175551920.png)
 
 ## Tomcat热部署
 

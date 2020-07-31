@@ -683,5 +683,5 @@ dev-hugepages.mount           static
 
 # 与service命令的差别
 
-![image-20191120105414671](assets/image-20191120105414671.png)
+![image-20191120105414671](https://raw.githubusercontent.com/jssda/picbed/master/image-20191120105414671.png)
 

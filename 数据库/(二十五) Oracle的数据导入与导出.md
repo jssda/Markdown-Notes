@@ -44,8 +44,8 @@ exp hr/oracle@localhost:1521/orcl file=d:/1.dmp
 
 ## 使用工具导出与导入
 
-![1564823916930](assets/1564823916930.png)
+![1564823916930](https://raw.githubusercontent.com/jssda/picbed/master/1564823916930.png)
 
 这里有导入和导出的选项
 
-![1564824193568](assets/1564824193568.png)
+![1564824193568](https://raw.githubusercontent.com/jssda/picbed/master/1564824193568.png)
