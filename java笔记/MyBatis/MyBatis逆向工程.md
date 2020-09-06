@@ -451,3 +451,395 @@ public class MyBatisGeneratorUtil {
 }
 ```
 
+## 配合lombok使用
+
+本身来说, `mybatis-generator`并不支持Lombok, 但是我们可以使用自定义插件的方式, 让他支持`Lombok`.
+
+### java插件
+
+```java
+package pers.jssd.test.mybatis;
+
+import org.mybatis.generator.api.IntrospectedColumn;
+import org.mybatis.generator.api.IntrospectedTable;
+import org.mybatis.generator.api.PluginAdapter;
+import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;
+import org.mybatis.generator.api.dom.java.Interface;
+import org.mybatis.generator.api.dom.java.Method;
+import org.mybatis.generator.api.dom.java.TopLevelClass;
+
+import java.util.*;
+
+
+/**
+ * A MyBatis Generator plugin to use Lombok's annotations.
+ * For example, use @Data annotation instead of getter ands setter.
+ *
+ * @author Paolo Predonzani (http://softwareloop.com/)
+ */
+public class LombokPlugin extends PluginAdapter {
+
+    private final Collection<Annotations> annotations;
+
+    /**
+     * LombokPlugin constructor
+     */
+    public LombokPlugin() {
+        annotations = new LinkedHashSet<Annotations>(Annotations.values().length);
+    }
+
+    /**
+     * @param warnings list of warnings
+     * @return always true
+     */
+    public boolean validate(List<String> warnings) {
+        return true;
+    }
+
+    /**
+     * Intercepts base record class generation
+     *
+     * @param topLevelClass     the generated base record class
+     * @param introspectedTable The class containing information about the table as
+     *                          introspected from the database
+     * @return always true
+     */
+    @Override
+    public boolean modelBaseRecordClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
+        addAnnotations(topLevelClass);
+        return true;
+    }
+
+    /**
+     * Intercepts primary key class generation
+     *
+     * @param topLevelClass     the generated primary key class
+     * @param introspectedTable The class containing information about the table as
+     *                          introspected from the database
+     * @return always true
+     */
+    @Override
+    public boolean modelPrimaryKeyClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
+        addAnnotations(topLevelClass);
+        return true;
+    }
+
+    /**
+     * Intercepts "record with blob" class generation
+     *
+     * @param topLevelClass     the generated record with BLOBs class
+     * @param introspectedTable The class containing information about the table as
+     *                          introspected from the database
+     * @return always true
+     */
+    @Override
+    public boolean modelRecordWithBLOBsClassGenerated(TopLevelClass topLevelClass,
+                                                      IntrospectedTable introspectedTable) {
+        addAnnotations(topLevelClass);
+        return true;
+    }
+
+    /**
+     * Prevents all getters from being generated.
+     * See SimpleModelGenerator
+     *
+     * @param method             the getter, or accessor, method generated for the specified
+     *                           column
+     * @param topLevelClass      the partially implemented model class
+     * @param introspectedColumn The class containing information about the column related
+     *                           to this field as introspected from the database
+     * @param introspectedTable  The class containing information about the table as
+     *                           introspected from the database
+     * @param modelClassType     the type of class that the field is generated for
+     */
+    @Override
+    public boolean modelGetterMethodGenerated(Method method, TopLevelClass topLevelClass,
+                                              IntrospectedColumn introspectedColumn,
+                                              IntrospectedTable introspectedTable, ModelClassType modelClassType) {
+        return false;
+    }
+
+    /**
+     * Prevents all setters from being generated
+     * See SimpleModelGenerator
+     *
+     * @param method             the setter, or mutator, method generated for the specified
+     *                           column
+     * @param topLevelClass      the partially implemented model class
+     * @param introspectedColumn The class containing information about the column related
+     *                           to this field as introspected from the database
+     * @param introspectedTable  The class containing information about the table as
+     *                           introspected from the database
+     * @param modelClassType     the type of class that the field is generated for
+     * @return always false
+     */
+    @Override
+    public boolean modelSetterMethodGenerated(Method method, TopLevelClass topLevelClass,
+                                              IntrospectedColumn introspectedColumn,
+                                              IntrospectedTable introspectedTable, ModelClassType modelClassType) {
+        return false;
+    }
+
+    /**
+     * Adds the lombok annotations' imports and annotations to the class
+     *
+     * @param topLevelClass the partially implemented model class
+     */
+    private void addAnnotations(TopLevelClass topLevelClass) {
+        for (Annotations annotation : annotations) {
+            topLevelClass.addImportedType(annotation.javaType);
+            topLevelClass.addAnnotation(annotation.asAnnotation());
+        }
+    }
+
+    @Override
+    public void setProperties(Properties properties) {
+        super.setProperties(properties);
+
+        //@Data is default annotation
+        annotations.add(Annotations.DATA);
+
+        for (String annotationName : properties.stringPropertyNames()) {
+            System.out.println("annotationName = " + annotationName);
+            if (annotationName.contains(".")) {
+                // Not an annotation name
+                continue;
+            }
+            String value = properties.getProperty(annotationName);
+            /*if (!Boolean.parseBoolean(value)) {
+                // The annotation is disabled, skip it
+                continue;
+            }*/
+            Annotations annotation = Annotations.getValueOf(annotationName);
+            System.out.println("annotation = " + annotation);
+            if (annotation == null) {
+                continue;
+            }
+            String optionsPrefix = annotationName + ".";
+            for (String propertyName : properties.stringPropertyNames()) {
+                System.out.println("propertyName = " + propertyName);
+                System.out.println("optionsPrefix = " + optionsPrefix);
+                System.out.println(propertyName.startsWith(optionsPrefix));
+                if (!optionsPrefix.startsWith(propertyName)) {
+                    // A property not related to this annotation
+                    continue;
+                }
+                String propertyValue = properties.getProperty(propertyName);
+                System.out.println("propertyValue = " + propertyValue);
+                System.out.println("propertyName = " + propertyName);
+                annotation.appendOptions(propertyName, propertyValue);
+                annotations.add(annotation);
+                annotations.addAll(Annotations.getDependencies(annotation));
+            }
+        }
+    }
+
+    @Override
+    public boolean clientGenerated(Interface interfaze, TopLevelClass topLevelClass,
+                                   IntrospectedTable introspectedTable) {
+        interfaze.addImportedType(new FullyQualifiedJavaType("org.apache.ibatis.annotations.Mapper"));
+        interfaze.addAnnotation("@Mapper");
+        return true;
+    }
+
+    private enum Annotations {
+        DATA("data", "@Data", "lombok.Data"), BUILDER("builder", "@Builder", "lombok.Builder"), ALL_ARGS_CONSTRUCTOR(
+                "allArgsConstructor", "@AllArgsConstructor", "lombok.AllArgsConstructor"), NO_ARGS_CONSTRUCTOR(
+                "noArgsConstructor", "@NoArgsConstructor", "lombok.NoArgsConstructor"), ACCESSORS("accessors",
+                "@Accessors", "lombok.experimental.Accessors"), TO_STRING("toString", "@ToString", "lombok.ToString");
+
+
+        private final String paramName;
+        private final String name;
+        private final FullyQualifiedJavaType javaType;
+        private final List<String> options;
+
+
+        Annotations(String paramName, String name, String className) {
+            this.paramName = paramName;
+            this.name = name;
+            this.javaType = new FullyQualifiedJavaType(className);
+            this.options = new ArrayList<String>();
+        }
+
+        private static Annotations getValueOf(String paramName) {
+            for (Annotations annotation : Annotations.values()) {
+                if (String.CASE_INSENSITIVE_ORDER.compare(paramName, annotation.paramName) == 0) {
+                    return annotation;
+                }
+            }
+
+            return null;
+        }
+
+        private static Collection<Annotations> getDependencies(Annotations annotation) {
+            if (annotation == ALL_ARGS_CONSTRUCTOR) {
+                return Collections.singleton(NO_ARGS_CONSTRUCTOR);
+            } else {
+                return Collections.emptyList();
+            }
+        }
+
+        // A trivial quoting.
+        // Because Lombok annotation options type is almost String or boolean.
+        private static String quote(String value) {
+            if (Boolean.TRUE.toString().equals(value) || Boolean.FALSE.toString().equals(value))
+            // case of boolean, not passed as an array.
+            {
+                return value;
+            }
+            return value.replaceAll("[\\w]+", "\"$0\"");
+        }
+
+        private void appendOptions(String key, String value) {
+            String keyPart = key.substring(key.indexOf(".") + 1);
+            String valuePart = value.contains(",") ? String.format("{%s}", value) : value;
+            if (valuePart != null && !"".equals(valuePart)) {
+                this.options.add(String.format("%s=%s", keyPart, quote(valuePart)));
+            }
+        }
+
+        private String asAnnotation() {
+            if (options.isEmpty()) {
+                return name;
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(name);
+            sb.append("(");
+            boolean first = true;
+            for (String option : options) {
+                if (first) {
+                    first = false;
+                } else {
+                    sb.append(", ");
+                }
+                sb.append(option);
+            }
+            sb.append(")");
+            return sb.toString();
+        }
+    }
+}
+```
+
+### 配置文件引入
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- classPathEntry:数据库的JDBC驱动的jar包地址-->
+    <!--<classPathEntry location="D:\IDEA_Demo\SSMDemo\lib\mysql-connector-java-5.1.25-bin.jar"/>-->
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!--序列化插件-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <!--自定义插件-->
+        <plugin type="pers.jssd.test.mybatis.LombokPlugin">
+            <property name="builder" value=""/>
+            <property name="noArgsConstructor" value=""/>
+            <property name="allArgsConstructor" value=""/>
+        </plugin>
+
+        <commentGenerator>
+            <!-- 是否去除自动生成的日期 true：是 ： false:否 -->
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 在生成的实体类中附带表字段的注释  MBG1.3.3中新增的功能 -->
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+        
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://rm-bp17rs6x3634h47kkdo.mysql.rds.aliyuncs.com:3306/jssdmysql"
+                        userId="lab_286338407"
+                        password="75062e1cf53c_#@Aa">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+            <property name="serverTimezone" value="GMT"/>
+        </jdbcConnection>
+
+        <!--
+          true：使用BigDecimal对应DECIMAL和 NUMERIC数据类型
+            false：默认,
+               scale>0;length>18：使用BigDecimal;
+               scale=0;length[10,18]：使用Long；
+               scale=0;length[5,9]：使用Integer；
+               scale=0;length<5：使用Short；
+         -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+
+        <!-- java模型创建器，是必须要的元素
+           负责：1，key类（见context的defaultModelType）；2，java类；3，查询类
+           targetPackage：生成的类要放的包，真实的包受enableSubPackages属性控制；
+           targetProject：目标项目，指定一个存在的目录下，生成的内容会放到指定目录中，如果目录不存在，MBG不会自动建目录
+        -->
+        <javaModelGenerator targetPackage="pers.jssd.test.pojo" targetProject="src/main/java">
+            <!-- 是否对model添加 构造函数 -->
+            <property name="constructorBased" value="false"/>
+            <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 从数据库返回的值被清理前后的空格  -->
+            <property name="trimStrings" value="true"/>
+            <!-- 是否对类CHAR类型的列的数据进行trim操作 -->
+            <property name="trimStrings" value="true"/>
+            <!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
+            <property name="immutable" value="false"/>
+        </javaModelGenerator>
+
+        <!-- 生成映射文件mapper接口的包名和位置 targetPackage 改为你对应的 dao 位置-->
+        <sqlMapGenerator targetPackage="pers.jssd.test.mapper" targetProject="src/main/java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!--生成mapper接口、mapper.xml类存放位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="pers.jssd.test.mapper" targetProject="src/main/java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!--
+        schema即为数据库名, tableName为数据库中的对应的数据库表名或视图名, domainObjectName是要生成的实体类名,
+        如果想要mapper配置文件加入sql的where条件查询, 可以将enableCountByExample等设为true,
+        这样就会生成一个对应domainObjectName的Example类, enableCountByExample等设为false时,
+        就不会生成对应的Example类了.
+
+        table其他属性：
+        enableCountByExample="false"
+        enableUpdateByExample="false"
+        enableDeleteByExample="false"
+        enableSelectByExample="false"
+        selectByExampleQueryId="false"
+
+        如果table里边不配置property，默认字段都生成为类属性。
+        <ignoreColumn column="FRED" />//忽略字段
+        <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />//无论字段是什么类型，生成的类属性都是varchar。
+        -->
+        <!--<table tableName="email" enableCountByExample="true" catalog="ssm_email" schema=""
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="true">
+            <generatedKey column="eid" sqlStatement="mysql"/>
+        </table>
+
+        <table tableName="user" enableCountByExample="true" catalog="ssm_email" schema=""
+               enableUpdateByExample="true" enableDeleteByExample="true"
+               enableSelectByExample="true" selectByExampleQueryId="true">
+            <generatedKey column="uid" sqlStatement="mysql"/>
+        </table>-->
+        <table tableName="students">
+            <!--insert返回id-->
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <columnOverride property="clazz" column="class"/>
+        </table>
+    </context>
+
+</generatorConfiguration>
+```
