@@ -1374,6 +1374,24 @@ jmap 是一个多功能命令，可以生成 Java 程序的 Dump 文件，也可
 jmap [option] vmid
 ```
 
+option参数：
+
+| 选项           | 作用                                                         |
+| -------------- | ------------------------------------------------------------ |
+| -dump          | 生成Java堆转储快照。格式为：-dump:[live, ]format=b,file=<filename>其中live子参数说明是否只dump出存活的对象 |
+| -finalizerinfo | 显示在F-Queue队列中等待Finalizer线程执行finalize方法的对象   |
+| -heap          | 显示Java堆详细信息。如使用哪种垃圾收集器、参数配置、分代状况等 |
+| -histo         | 显示堆中对象的统计信息，包括类、实例数量、合计容器           |
+| -permstat      | 以ClassLoader为统计口径显示永久代内存状态                    |
+| -F             | 当虚拟机进程对-dump没有响应时，可使用此选项强制生成dump快照  |
+
+option参数详解：
+
+-dump
+ 生成Java堆转储快照。格式为：-dump:[live, ]format=b,file=<filename> live指明是否只dump出存活的对象,format指定输出格式，file指定文件名
+
+
+
 执行样例，使用 jmap 生成一个正在运行的 Eclipse 的 dump 快照文件的例子。例子中的2618是通过jps名称查询到的LVMID。
 
 ```
@@ -1433,13 +1451,172 @@ jstad 命令用于收集远程主机信息。
 
 jcmd 命令可以针对给定的 Java 虚拟机执行一条命令。
 
+### JVM 图形化监控工具
+
+Ctrl+R 打开运行, 输入 `Jvisualvm `, 即可启动自带的图形化监控工具。
 
 
 
+## 性能调优
 
+减少minor gc的频率、将转移到老年代的对象数量降低到最小以及减少full gc的次数，调优的关键是找到性能的瓶颈
 
+![图片.png](https://raw.githubusercontent.com/jssda/picbed/master/161415e8adf436e4)
 
+### 调优指标
 
+ javaVersion                     /** Java版本号 */
+         runTime                         /** 程序运行时间(ms) */
+         loadedClassCount               /** JVM当前加载类数量 */
+         unloadedClassCount             /** JVM已卸载类数量 */
+         heapTotal                       /** 堆内存大小(字节) */
+         heapUsed                       /** 堆内存已使用(字节) */
+         heapUsedPercent                 /** 堆内存使用率 */
+         nonHeapTotal                   /** 堆外内存大小(字节) */
+         nonHeapUsed                     /** 堆外内存已使用(字节) */
+         nonHeapUsedPercent             /** 堆外内存使用率 */
+         edenTotal                       /** Eden区大小(字节) */
+         edenUsed                       /** Eden区已使用(字节) */
+         edenUsedPercent                 /** Eden区使用率 */
+         edenPeakUsedPercent             /** Eden区使用率峰值(从上次采集统计) */
+         survivorTotal                   /** Survivor区大小(字节) */
+         survivorUsed                   /** Survivor区已使用(字节) */
+         survivorUsedPercent             /** Survivor区已使用率 */
+         survivorPeakUsedPercent         /** Survivor区已使用率峰值(从上次采集统计) */
+         oldTotal                       /** 老区大小(字节) */
+         oldUsed                         /** 老区已使用(字节) */
+         oldUsedPercent                 /** 老区已使用率峰值 */
+         oldPeakUsedPercent             /** 老区已使用率峰值(从上次采集统计) */
+         permTotal                       /** 永久区大小(字节) */
+         permUsed                       /** 永久区已使用(字节) */
+         permUsedPercent                 /** 永久区使用率 */
+         permPeakUsedPercent             /** 永久区使用率峰值(从上次采集统计) */
+         codeCacheTotal                 /** CodeCache区大小(字节) */
+         codeCacheUsed                   /** CodeCache区已使用(字节) */
+         codeCacheUsedPercent           /** CodeCache区使用率 */
+         codeCachePeakUsedPercent       /** CodeCache区使用率峰值(从上次采集统计) */
+         ygcName                         /** young gc名称 */
+         ygc                             /** young gc次数 */
+         ygcTime                         /** young gc总时间 (ms)*/
+         fgcName                         /** full gc名称 */
+         fgc                             /** full gc次数 */
+         fgcTime                         /** full gc总时间 (ms)*/
+         threadCount                     /** JVM当前线程数量 */
+         threadPeakCount                 /** JVM线程数量峰值 */
+         userThreadCount                 /** JVM当前用户线程数量 */
+         deadLockedThreadCount           /** JVM死锁线程数量 */
+
+### 调优手段
+
+```
+1.使用JDK提供的内存查看工具，如JConsole和Java VisualVM
+2.控制堆内存各个部分所占的比例
+3.采用合适的垃圾收集器
+```
+
+#### 手段1：内存查看工具和GC日志分析
+
+```
+-verbose.gc：显示GC的操作内容。打开它，可以显示最忙和最空闲收集行为发生的时间、收集前后的内存大小、收集需要的时间等。
+-xx:+printGCdetails：详细了解GC中的变化。
+-XX:+PrintGCTimeStamps：了解这些垃圾收集发生的时间，自JVM启动以后以秒计量。
+-xx:+PrintHeapAtGC：了解堆的更详细的信息。
+```
+
+#### 手段2：针对新生代和旧生代的比例
+
+```
+如果新生代太小，会导致频繁GC，而且大对象对直接进入旧生代引发full gc
+如果新生代太大，会诱发旧生代full gc，而且新生代的gc耗时会延长
+建议新生代占整个堆1``/3``合适，相关JVM参数如下：
+-Xms:初始堆大小
+-Xmx:最大堆大小
+- Xmn:新生代大小
+-XX:PermSize=n:持久代最大值
+-XX:MaxPermSize=n:持久代最大值
+-XX:NewRatio=n:设置新生代和旧生代的比值。如:为3，表示新生代与旧生代比值为1：3，新生代占整个新生代旧生代和的1``/4
+```
+
+#### 手段3：针对Eden和Survivor的比例
+
+```
+如果Eden太小，会导致频繁GC
+如果Eden太大，会导致大对象直接进入旧生代，降低对象在新生代存活时间
+-XX:SurvivorRatio=n:新生代中Eden区与两个Survivor区的比值。注意Survivor区有两个。如：3，表示Eden：Survivor=3：2，一个Survivor区占整个年轻代的1``/5
+-XX:PretenureSizeThreshold：直接进入旧生代中的对象大小，设置此值后，大于这个参数的对象将直接在旧生代中进行内存分配。
+-XX:MaxTenuringThreshold：对象转移到旧生代中的年龄，每个对象经历过一次新生代GC（Minor GC）后，年龄就加1，到超过设置的值后，对象转移到旧生代。
+```
+
+#### 手段4：采用正确的垃圾收集器
+
+```
+通过JVM参数设置所使用的垃圾收集器参考前面的介绍，这里关注其他一些设置。``#并行收集器设置-XX:ParallelGCThreads=n:设置并行收集器收集时并行收集线程数
+-XX:MaxGCPauseMillis=n:设置并行收集最大暂停时间，仅对ParallelScavenge生效
+-XX:GCTimeRatio=n:设置垃圾回收时间占程序运行时间的百分比，仅对Parallel Scavenge生效``#并发收集器设置-XX:CMSInitiatingOccupancyFraction：默认设置下，CMS收集器在旧生代使用了68%的空间后就会被激活。此参数就是设置旧生代空间被使用多少后触发垃圾收集。注意要是CMS运行期间预留的内存无法满足程序需要，就会出现concurrent mode failure，这时候就会启用Serial Old收集器作为备用进行旧生代的垃圾收集。
+-XX:+UseCMSCompactAtFullCollection：空间碎片过多是标记-清除算法的弊端，此参数设置在FULL GC后再进行一个碎片整理过程
+-XX:CMSFullGCsBeforeCompaction：设置在若干次垃圾收集之后再启动一次内存碎片整理
+```
+
+### 原则和步骤：
+
+**我们需要记住下面的原则：**
+
+```
+1、多数的Java应用不需要在服务器上进行GC优化；
+2、多数导致GC问题的Java应用，都不是因为我们参数设置错误，而是代码问题；
+3、在应用上线之前，先考虑将机器的JVM参数设置到最优（最适合）；
+4、减少创建对象的数量；
+5、减少使用全局变量和大对象；
+6、GC优化是到最后不得已才采用的手段；
+7、在实际使用中，分析GC情况优化代码比优化GC参数要多得多；
+```
+
+#### 进行监控和调优的一般步骤为：
+
+1，监控GC的状态
+
+​      使用各种JVM工具，查看当前日志，分析当前JVM参数设置，并且分析当前堆内存快照和gc日志，根据实际的各区域内存划分和GC执行时间，觉得是否进行优化；
+
+2，分析结果，判断是否需要优化
+
+​        如果各项参数设置合理，系统没有超时日志出现，GC频率不高，GC耗时不高，那么没有必要进行GC优化；如果GC时间超过1-3秒，或者频繁GC，则必须优化；
+注：如果满足下面的指标，则一般不需要进行GC：
+
+```
+Minor GC执行时间不到50ms；
+Minor GC执行不频繁，约10秒一次；
+Full GC执行时间不到1s；
+Full GC执行频率不算频繁，不低于10分钟1次；
+```
+
+3, 调整GC类型和内存分配
+
+​      如果内存分配过大或过小，或者采用的GC收集器比较慢，则应该优先调整这些参数，并且先找1台或几台机器进行beta，然后比较优化过的机器和没有优化的机器的性能对比，并有针对性的做出最后选择；
+
+4，不断的分析和调整
+
+​       通过不断的试验和试错，分析并找到最合适的参数
+
+#### GC分析 命令调优
+
+GC日志分析
+
+摘录GC日志一部分（前部分为年轻代gc回收；后部分为full gc回收）：
+
+```
+2016-07-05T10:43:18.093+0800: 25.395: [GC [PSYoungGen: 274931K->10738K(274944K)] 371093K->147186K(450048K), 0.0668480 secs] [Times: user=0.17 sys=0.08, real=0.07 secs] 
+2016-07-05T10:43:18.160+0800: 25.462: [Full GC [PSYoungGen: 10738K->0K(274944K)] [ParOldGen: 136447K->140379K(302592K)] 147186K->140379K(577536K) [PSPermGen: 85411K->85376K(171008K)], 0.6763541 secs] [Times: user=1.75 sys=0.02, real=0.68 secs]
+```
+
+通过上面日志分析得出，PSYoungGen、ParOldGen、PSPermGen属于Parallel收集器。其中PSYoungGen表示gc回收前后年轻代的内存变化；ParOldGen表示gc回收前后老年代的内存变化；PSPermGen表示gc回收前后永久区的内存变化。young gc 主要是针对年轻代进行内存回收比较频繁，耗时短；full gc 会对整个堆内存进行回城，耗时长，因此一般尽量减少full gc的次数
+
+young gc 日志:
+
+![图片.png](https://raw.githubusercontent.com/jssda/picbed/master/161415e8ae193732)
+
+full gc 日志
+
+![图片.png](https://raw.githubusercontent.com/jssda/picbed/master/161415e8ae088a6d)
 
 
 
@@ -1450,3 +1627,5 @@ jcmd 命令可以针对给定的 Java 虚拟机执行一条命令。
 # 参考文章
 
 https://www.cnblogs.com/chanshuyi/p/jvm_serial_00_why_learn_jvm.html
+
+https://juejin.cn/post/6844903557108334605
