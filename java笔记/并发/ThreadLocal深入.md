@@ -47,6 +47,11 @@ class Bean {
 
 ```
 
+运行结果
+
+![image-20210113152542585](https://raw.githubusercontent.com/jssda/picbed/master/image-20210113152542585.png)
+
+
 ## 1.2 简单理解
 
 ThreadLocal是如何在一个线程中使用自己的线程副本呢？既然是线程副本，那肯定要存储在线程中。
