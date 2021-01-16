@@ -109,3 +109,15 @@
       > 2. 冲突的解决
       >
       >    ![1548601899877](Untitled.assets/1548601899877.png)
+
+## Git 添加远程库
+
+`git remote add <shortname> <url>` 添加一个新的远程 Git 仓库
+
+你也可以指定选项 `-v`，会显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL。
+
+```console
+$ git remote -v
+origin	https://github.com/schacon/ticgit (fetch)
+origin	https://github.com/schacon/ticgit (push)
+```

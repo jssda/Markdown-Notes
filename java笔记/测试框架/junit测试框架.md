@@ -20,5 +20,7 @@ java 类, 均在类名后加 Test. java方法, 均在方法前加test.
 | @RunWith(SpringRunner.class) | @ExtendWith(SpringExtension.class) | 类class定义上                                                |
 | @Ignore                      | @Disabled                          | 用于禁用测试类或测试方法; 类似于JUnit4的@Ignore。这个注解不能继承。 |
 
+## `@WebMvcTest`注解
 
+当使用SpringBootTest的时候，Junit会加载web容器中所有的bean对象，我们可以使用WebMvcTest来只加载Controller层的Bean对象。
 
